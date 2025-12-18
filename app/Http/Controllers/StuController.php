@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StudentAddedMail;
 
@@ -78,11 +79,11 @@ class StuController extends Controller
             return redirect()->back()->with('error', 'Student not found!');
         }
 
-        // $validatedData = $request->validate([
-        //     'stu_name' => 'required|string|max:255',
-        //     'stu_email' => 'required|email|unique:stu,stu_email,' . $id,
-        //     'stu_contact' => 'required|string|max:15',
-        // ]);
+        $validatedData = $request->validate([
+            'stu_name' => 'required|string|max:255',
+            'stu_email' => 'required|email|unique:stu,stu_email,' . $id,
+            'stu_contact' => 'required|string|max:15',
+        ]);
 
 
         // // $student->update($validatedData);
